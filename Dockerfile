@@ -9,7 +9,7 @@ RUN npm ci
 # Copy all application files
 COPY . .
 
-# Build application for production
+# Build application for production (generates standalone .output)
 RUN npm run build
 
 # Stage 2: Production Runner
@@ -20,9 +20,10 @@ ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOST=0.0.0.0
 
-# Copy built application with source trees for router entry resolution
-COPY --from=builder /app ./
+# Copy standalone production build
+COPY --from=builder /app/.output ./.output
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start"]
+# Start standalone Node.js server directly
+CMD ["node", ".output/server/index.mjs"]
