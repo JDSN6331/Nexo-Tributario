@@ -1,0 +1,155 @@
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css");
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-glass: var(--glass);
+  --color-glass-strong: var(--glass-strong);
+  --color-glass-border: var(--glass-border);
+  --color-glow: var(--glow);
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  /* Dark glass theme */
+  --background: oklch(0.145 0.018 250);
+  --foreground: oklch(0.94 0.01 240);
+  --card: oklch(0.19 0.02 250);
+  --card-foreground: oklch(0.94 0.01 240);
+  --popover: oklch(0.19 0.02 250);
+  --popover-foreground: oklch(0.94 0.01 240);
+  --primary: oklch(0.87 0.14 175);
+  --primary-foreground: oklch(0.16 0.03 250);
+  --secondary: oklch(0.22 0.025 250);
+  --secondary-foreground: oklch(0.94 0.01 240);
+  --muted: oklch(0.22 0.025 250);
+  --muted-foreground: oklch(0.68 0.025 245);
+  --accent: oklch(0.87 0.14 175);
+  --accent-foreground: oklch(0.16 0.03 250);
+  --destructive: oklch(0.65 0.2 25);
+  --destructive-foreground: oklch(0.97 0.01 240);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.87 0.14 175 / 60%);
+  --glass: oklch(1 0 0 / 5%);
+  --glass-strong: oklch(1 0 0 / 9%);
+  --glass-border: oklch(1 0 0 / 12%);
+  --glow: oklch(0.87 0.14 175 / 25%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Glassmorphism surfaces */
+@utility glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid var(--color-glass-border);
+}
+
+@utility glass-strong {
+  background: var(--color-glass-strong);
+  backdrop-filter: blur(26px) saturate(160%);
+  border: 1px solid var(--color-glass-border);
+}
+
+/* Ambient background: deep tech space with teal/violet aurora glows */
+@utility bg-aurora {
+  background-color: transparent;
+  background-image:
+    /* Orbe de luz Teal Superior */
+    radial-gradient(1200px 600px at 80% -5%, oklch(0.87 0.14 175 / 18%), transparent 65%),
+    /* Orbe Violeta Central/Esquerda */
+    radial-gradient(950px 700px at -8% 30%, oklch(0.55 0.22 300 / 16%), transparent 60%),
+    /* Orbe Azul Esmeralda Inferior */
+    radial-gradient(1100px 850px at 50% 115%, oklch(0.72 0.16 195 / 14%), transparent 65%);
+}
+
+@utility text-glow {
+  text-shadow: 0 0 32px var(--color-glow);
+}
+
+@utility shadow-glass {
+  box-shadow:
+    0 20px 50px -20px oklch(0 0 0 / 60%),
+    inset 0 1px 0 oklch(1 0 0 / 10%);
+}
+
+@utility glow-pulse {
+  animation: glowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-rise {
+  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+

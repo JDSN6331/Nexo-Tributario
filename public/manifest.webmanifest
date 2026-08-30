@@ -1,0 +1,22 @@
+{
+  "name": "Nexo Tributário · Reforma Tributária & Agronegócio",
+  "short_name": "Nexo Tributário",
+  "description": "Simulador de Classificação Fiscal NCM, alíquotas da Reforma Tributária (LC 214/2025), comparativo de regimes e agro.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b132b",
+  "theme_color": "#10b981",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
