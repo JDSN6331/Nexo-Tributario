@@ -127,9 +127,9 @@ function Index() {
                 </div>
 
                 <h1 className="font-display text-4xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-5xl md:text-7xl">
-                  Cinco impostos.
+                  Cinco impostos,
                   <br />
-                  <span className="text-primary text-glow">Um caminho claro.</span>
+                  <span className="text-primary text-glow">um caminho claro.</span>
                 </h1>
                 <p className="max-w-[46ch] text-base sm:text-lg leading-relaxed text-foreground/90 text-pretty">
                   A Reforma Tributária reúne PIS, COFINS, IPI, ICMS e ISS em apenas dois tributos sobre
