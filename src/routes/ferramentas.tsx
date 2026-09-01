@@ -798,7 +798,7 @@ function Ferramentas() {
       <main className="mx-auto max-w-6xl px-4 sm:px-6 pt-12 pb-12">
         <p className="text-sm font-semibold text-primary">Nexo Tributário · Calculadoras</p>
         <h1 className="mt-2 max-w-[24ch] font-display text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-balance">
-          Cálculos estratégicos, do oficial ao avançado.
+          Cálculos estratégicos: do oficial ao avançado.
         </h1>
         <p className="mt-4 max-w-[58ch] text-base sm:text-lg leading-relaxed text-muted-foreground text-pretty">
           Acesse a fonte oficial com respaldo legal, use as calculadoras rápidas para análise de impacto
