@@ -52,11 +52,17 @@ export function creditoNaoCumulativo(params: {
   const debito = receita * aliquota;
   const creditoNovo = comprasComCredito * aliquota;
   const creditoAtual = creditoNovo * (1 - cumulatividadeAtual);
+  const aPagarNovo = Math.max(debito - creditoNovo, 0);
+  const aPagarAtual = Math.max(debito - creditoAtual, 0);
   return {
     debito,
     creditoNovo,
     creditoAtual,
-    aPagarNovo: Math.max(debito - creditoNovo, 0),
-    aPagarAtual: Math.max(debito - creditoAtual, 0),
+    aPagarNovo,
+    aPagarAtual,
+    /** Aliases usados pelas calculadoras visuais */
+    impostoNovo: aPagarNovo,
+    impostoAtual: aPagarAtual,
+    ganhoCredito: aPagarAtual - aPagarNovo,
   };
 }

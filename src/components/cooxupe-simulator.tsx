@@ -68,7 +68,7 @@ export function CooxupeSimulator() {
       const urlSku = params.get("sku");
       if (urlSku) {
         const match = buscarPorSku(urlSku.trim(), 1);
-        if (match.length > 0) {
+        if (match.length > 0 && match[0]) {
           setProdutoSelecionado(match[0]);
         }
       }
@@ -78,11 +78,12 @@ export function CooxupeSimulator() {
   useEffect(() => {
     if (tipoBusca === "sku" && termoSku.trim()) {
       const matchExatos = buscarPorSku(termoSku.trim(), 1);
+      const primeiro = matchExatos[0];
       if (
-        matchExatos.length > 0 &&
-        matchExatos[0].codigo.toLowerCase() === termoSku.trim().toLowerCase()
+        primeiro &&
+        primeiro.codigo.toLowerCase() === termoSku.trim().toLowerCase()
       ) {
-        setProdutoSelecionado(matchExatos[0]);
+        setProdutoSelecionado(primeiro);
       }
     }
   }, [termoSku, tipoBusca]);

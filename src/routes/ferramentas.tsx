@@ -298,7 +298,7 @@ function CalcCredito() {
             { label: "Imposto devido no novo modelo", value: brl(r.impostoNovo), destaque: true },
             { label: "Economia mensal estimada", value: brl(r.ganhoCredito) },
           ]}
-          nota="Hoje serviços e insumos de uso e consumo geram crédito restrito; no novo IVA, o crédito é financeiro e amplo."
+          nota="Esta calculadora compara o modelo estável (crédito restrito de hoje vs crédito financeiro pleno do novo IVA). Ela não simula a compensação de saldos acumulados de PIS/COFINS na virada para a CBS em 2027 — consulte a seção Aprender para entender o mecanismo de transição."
         />
         <ExportBar
           payload={payload}
@@ -767,7 +767,7 @@ function CalcAgro() {
               destaque: true,
             },
           ]}
-          nota={`Limite de referência de ${brl(limiteAnual)} ao ano; percentuais de crédito presumido ainda dependem de regulamentação complementar.`}
+          nota="Limite de referência de R$ 3.600.000 ao ano; percentuais de crédito presumido ainda dependem de regulamentação complementar."
         />
         <ExportBar
           payload={payload}
@@ -873,11 +873,10 @@ function Ferramentas() {
                     key={a.id}
                     type="button"
                     onClick={() => setAba(a.id)}
-                    className={`inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-xs sm:text-sm font-medium transition-all ${
-                      ativo
+                    className={`inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-xs sm:text-sm font-medium transition-all ${ativo
                         ? "bg-primary text-primary-foreground shadow-[0_0_20px_var(--color-glow)]"
                         : "glass text-muted-foreground hover:bg-glass-strong hover:text-foreground"
-                    }`}
+                      }`}
                   >
                     <a.icon className="size-3.5 sm:size-4" />
                     {a.label}

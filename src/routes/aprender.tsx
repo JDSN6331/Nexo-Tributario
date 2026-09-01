@@ -63,6 +63,30 @@ const perguntas: Pergunta[] = [
   },
   {
     grupo: "Empresas",
+    destaque: true,
+    q: "PIS e COFINS deixam de existir em 2027. Como fica a compensação?",
+    a: "Em 1º de janeiro de 2027 a CBS substitui integralmente o PIS e a COFINS. Os saldos de créditos acumulados no regime não cumulativo (Lei 10.637/02 e Lei 10.833/03) até 31/12/2026 são preservados, atualizados pela taxa Selic e podem ser compensados contra a CBS devida a partir de 2027. Já em 2026 (ano-teste), as alíquotas simbólicas de CBS (0,9%) e IBS (0,1%) são integralmente compensáveis com o PIS/COFINS do mesmo período — sem carga extra.",
+    exemplo:
+      "Uma distribuidora que encerra 2026 com R$ 120.000,00 de crédito acumulado de PIS/COFINS pode usar esse saldo, corrigido pela Selic, para abater a CBS devida em janeiro de 2027 e nos meses seguintes, até o esgotamento. Se não conseguir compensar tudo, pode requerer o ressarcimento em espécie junto à Receita Federal.",
+  },
+  {
+    grupo: "Empresas",
+    destaque: true,
+    q: "Quem está no regime cumulativo de PIS/COFINS ganha ou perde com a CBS?",
+    a: "Ganha. No regime cumulativo atual, a empresa paga PIS/COFINS sem direito a abater nenhum crédito das compras — o imposto vira custo direto. Com a CBS, o crédito financeiro é amplo e imediato: toda compra tributada gera crédito, independentemente do regime anterior. Empresas de serviços no Lucro Presumido, por exemplo, passam de zero crédito para crédito integral.",
+    exemplo:
+      "Escritório de advocacia no Lucro Presumido com faturamento de R$ 80.000/mês e despesas tributadas de R$ 25.000/mês: hoje paga 3,65% de PIS/COFINS (R$ 2.920) sem crédito nenhum. No novo modelo, o débito é R$ 21.200 (26,5%), mas o crédito de R$ 6.625 reduz o imposto líquido para R$ 14.575. A alíquota nominal é maior, mas a carga efetiva precisa ser comparada caso a caso.",
+  },
+  {
+    grupo: "Empresas",
+    destaque: true,
+    q: "O que acontece com os créditos acumulados de PIS/COFINS na virada de 2026 para 2027?",
+    a: "Os créditos escriturados na EFD-Contribuições até 31/12/2026 são homologados pela Receita Federal e convertidos em créditos da CBS. Eles recebem atualização monetária pela taxa Selic e podem ser usados para: (1) compensação contra a CBS devida mês a mês; (2) ressarcimento em espécie, quando não houver débitos suficientes para absorver o saldo; (3) compensação cruzada com outros tributos federais administrados pela RFB (IRPJ, CSLL, etc.), nos termos da regulamentação.",
+    exemplo:
+      "Exportador de café com R$ 500.000 de créditos acumulados de PIS/COFINS (por imunidade na exportação) pode requerer o ressarcimento desses créditos ou utilizá-los contra a CBS que incidirá nas vendas ao mercado interno a partir de 2027.",
+  },
+  {
+    grupo: "Empresas",
     q: "O que é crédito financeiro e por que ele importa tanto?",
     a: "É o direito de abater todo o IBS/CBS pago nas compras, inclusive em despesas que hoje não geram crédito, desde que ligadas à atividade. Isso elimina o efeito cascata e reduz o imposto que vira custo.",
     exemplo:
@@ -282,11 +306,10 @@ function Aprender() {
                   key={g}
                   type="button"
                   onClick={() => setGrupo(g)}
-                  className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
-                    grupo === g
+                  className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${grupo === g
                       ? "bg-primary text-primary-foreground shadow-[0_0_20px_var(--color-glow)]"
                       : "glass text-muted-foreground hover:bg-glass-strong hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   {g}
                 </button>
@@ -320,9 +343,8 @@ function Aprender() {
                       </span>
                     </span>
                     <ChevronDown
-                      className={`size-4 shrink-0 text-muted-foreground transition-transform ${
-                        open ? "rotate-180 text-primary" : ""
-                      }`}
+                      className={`size-4 shrink-0 text-muted-foreground transition-transform ${open ? "rotate-180 text-primary" : ""
+                        }`}
                     />
                   </button>
                   {open && (

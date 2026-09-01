@@ -25,61 +25,6 @@ export type ItemRadar = {
 };
 
 export const ULTIMA_ATUALIZACAO_RADAR = "29 de Agosto de 2026";
-export const VERSAO_BASE_NORMATIVA = "EC 132/2023 & Leis Complementares de Regulamentação";
-
-export type ChangelogItem = {
-  data: string;
-  versao: string;
-  titulo: string;
-  descricao: string;
-  fonte: string;
-};
-
-export const HISTORICO_ATUALIZACOES: ChangelogItem[] = [
-  {
-    data: "29/08/2026",
-    versao: "v2.1",
-    titulo: "Inclusão da Calculadora de Split Payment & Exportação em PDF",
-    descricao:
-      "Adicionado o simulador do impacto do Split Payment no capital de giro diário e a exportação de relatórios corporativos completos em formato PDF.",
-    fonte: "Portaria Conjunta RFB/CGIBS & Nota Técnica do Split Payment",
-  },
-  {
-    data: "15/07/2026",
-    versao: "v2.0",
-    titulo: "Atualização das regras do Simples Nacional Híbrido",
-    descricao:
-      "Incorporação das diretrizes de transferência de créditos no B2B para optantes pelo regime unificado.",
-    fonte: "Comitê Gestor do Simples Nacional (CGSN)",
-  },
-  {
-    data: "10/05/2026",
-    versao: "v1.8",
-    titulo: "Layouts atualizados da NF-e com campos de CBS e IBS",
-    descricao:
-      "Inclusão dos códigos de classificação tributária e grupos de tributação destacada na nota fiscal eletrônica.",
-    fonte: "Nota Técnica ENCAT / SPED",
-  },
-];
-
-export const TODAS_CATEGORIAS: CategoriaTipo[] = [
-  "ERP & Sistemas",
-  "Nota Fiscal & Emissão",
-  "Preços & Margens",
-  "Crédito & Caixa",
-  "Jurídico & Contratos",
-  "Regulamentação & Leis",
-  "Social & Consumo",
-  "Agro",
-];
-
-export const TODOS_PUBLICOS: PublicoTipo[] = [
-  "Todos",
-  "Empresas",
-  "MEI e Simples",
-  "Consumidor",
-  "Agronegócio",
-];
 
 export const COLUNAS_RADAR: {
   id: "mudou" | "breve" | "pendente" | "fazer";

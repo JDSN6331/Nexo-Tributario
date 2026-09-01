@@ -134,11 +134,10 @@ function SimuladorPage() {
             <button
               type="button"
               onClick={() => setActiveTab("corporativo")}
-              className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all ${
-                activeTab === "corporativo"
+              className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all ${activeTab === "corporativo"
                   ? "bg-primary text-primary-foreground shadow-[0_0_16px_var(--color-glow)]"
                   : "text-muted-foreground hover:text-foreground"
-              }`}
+                }`}
             >
               <Calculator className="size-4" />
               <span>Corporativo & Transição</span>
@@ -147,11 +146,10 @@ function SimuladorPage() {
             <button
               type="button"
               onClick={() => setActiveTab("agro")}
-              className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all ${
-                activeTab === "agro"
+              className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all ${activeTab === "agro"
                   ? "bg-emerald-500 text-slate-950 font-bold shadow-[0_0_16px_rgba(52,211,153,0.4)]"
                   : "text-muted-foreground hover:text-foreground"
-              }`}
+                }`}
             >
               <Sprout className="size-4" />
               <span>Agro & NCMs (Cooxupé)</span>
@@ -250,9 +248,8 @@ function SimuladorCorporativo() {
           </Row>
         </div>
         <p
-          className={`mt-4 text-xs ${
-            mixTotal === 100 ? "text-muted-foreground" : "text-destructive"
-          }`}
+          className={`mt-4 text-xs ${mixTotal === 100 ? "text-muted-foreground" : "text-destructive"
+            }`}
         >
           Soma do mix: {mixTotal}% {mixTotal !== 100 && "(será normalizada para 100%)"}
         </p>
@@ -274,17 +271,15 @@ function SimuladorCorporativo() {
           ].map((c, i) => (
             <div
               key={c.t}
-              className={`glass rounded-3xl p-6 shadow-glass ${
-                i === 2 ? "ring-1 ring-primary/25" : ""
-              }`}
+              className={`glass rounded-3xl p-6 shadow-glass ${i === 2 ? "ring-1 ring-primary/25" : ""
+                }`}
             >
               <p className="text-[11px] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
                 {c.t}
               </p>
               <p
-                className={`mt-3 font-display text-2xl font-semibold tracking-tight ${
-                  i === 2 ? "text-primary" : ""
-                }`}
+                className={`mt-3 font-display text-2xl font-semibold tracking-tight ${i === 2 ? "text-primary" : ""
+                  }`}
               >
                 {brl(c.v)}
               </p>
@@ -302,11 +297,10 @@ function SimuladorCorporativo() {
                   key={f.ano}
                   type="button"
                   onClick={() => setAnoFoco(f.ano)}
-                  className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-all ${
-                    anoFoco === f.ano
+                  className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-all ${anoFoco === f.ano
                       ? "bg-primary text-primary-foreground"
                       : "glass text-muted-foreground hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   {f.ano}
                 </button>

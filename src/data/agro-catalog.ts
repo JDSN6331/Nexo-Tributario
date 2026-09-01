@@ -249,7 +249,7 @@ export type ProdutoAgro = {
   ncmFormatado: string;
   ncmBruto?: string;
   categoriaSugerida: string;
-  fabricante?: string;
+  fabricante?: string | undefined;
   anexoIX: boolean;
 };
 
