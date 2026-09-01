@@ -298,7 +298,7 @@ function CalcCredito() {
             { label: "Imposto devido no novo modelo", value: brl(r.impostoNovo), destaque: true },
             { label: "Economia mensal estimada", value: brl(r.ganhoCredito) },
           ]}
-          nota="Esta calculadora compara o modelo estável (crédito restrito de hoje vs crédito financeiro pleno do novo IVA). Ela não simula a compensação de saldos acumulados de PIS/COFINS na virada para a CBS em 2027 — consulte a seção Aprender para entender o mecanismo de transição."
+          nota="Esta calculadora compara o modelo estável (crédito restrito de hoje vs crédito financeiro pleno do novo IVA). Ela não simula a compensação de saldos acumulados de PIS/COFINS na virada para a CBS em 2027. Consulte a seção Aprender para entender o mecanismo de transição."
         />
         <ExportBar
           payload={payload}
