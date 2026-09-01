@@ -121,7 +121,7 @@ function SimuladorPage() {
               Central de Simulação & Inteligência
             </span>
             <h1 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-balance">
-              Simuladores Tributários Estratégicos
+              Simuladores Tributários Estratégicos.
             </h1>
             <p className="mt-3 max-w-[64ch] text-base sm:text-lg leading-relaxed text-muted-foreground text-pretty">
               Alterne entre a simulação corporativa ampla da transição 2026–2033 e o motor analítico
