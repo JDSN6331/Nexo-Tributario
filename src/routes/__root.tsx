@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportClientError } from "../lib/error-reporting";
 import { BackgroundEffects } from "@/components/background-effects";
+import { GlobalSearchDialog } from "@/components/global-search";
 
 function NotFoundComponent() {
   return (
@@ -137,6 +138,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <BackgroundEffects />
+      <GlobalSearchDialog />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

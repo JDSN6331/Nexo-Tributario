@@ -1,4 +1,4 @@
-/** Dados centralizados do Radar de Mudanças, Prazos e Changelog do Clareza Fiscal. */
+/** Dados centralizados do Radar de Mudanças, Prazos e Changelog do Nexo Tributário. */
 
 export type PublicoTipo = "Empresas" | "MEI e Simples" | "Consumidor" | "Agronegócio" | "Todos";
 
@@ -24,7 +24,7 @@ export type ItemRadar = {
   urgencia: "alta" | "media" | "informativa";
 };
 
-export const ULTIMA_ATUALIZACAO_RADAR = "29 de Agosto de 2026";
+export const ULTIMA_ATUALIZACAO_RADAR = "08 de Setembro de 2026";
 
 export const COLUNAS_RADAR: {
   id: "mudou" | "breve" | "pendente" | "fazer";
@@ -41,36 +41,36 @@ export const COLUNAS_RADAR: {
     itens: [
       {
         id: "cbs-ibs-teste",
-        titulo: "CBS e IBS em ano-teste",
+        titulo: "CBS e IBS em ano-teste operacional",
         detalhe:
-          "Alíquotas simbólicas (0,9% CBS e 0,1% IBS) passam a constar dos documentos fiscais, compensáveis integralmente com PIS/COFINS.",
+          "Alíquotas simbólicas (0,9% CBS e 0,1% IBS) constam dos documentos fiscais eletrônicos, compensáveis integralmente na apuração mensal contra débitos de PIS/COFINS (sem aumento de carga).",
         data: "Jan/2026",
         prazoAno: 2026,
-        tags: ["Nota fiscal", "Apuração"],
+        tags: ["Nota fiscal", "Apuração", "Compensação"],
         publico: "Empresas",
         categoria: "Nota Fiscal & Emissão",
         urgencia: "alta",
       },
       {
         id: "novos-campos-nfe",
-        titulo: "Novos campos obrigatórios na NF-e e NFS-e",
+        titulo: "Novos campos e validações na NF-e e NFS-e",
         detalhe:
-          "Layouts atualizados com grupos de IBS/CBS, código de classificação tributária e imposto destacado por item.",
+          "Layouts atualizados (Ajustes SINIEF) com grupos específicos de IBS/CBS, classificação tributária (cBenef/cTrib) e destaque do imposto por item para o ano-teste.",
         data: "Jan/2026",
         prazoAno: 2026,
-        tags: ["ERP", "Emissão"],
+        tags: ["ERP", "Emissão", "XML"],
         publico: "Empresas",
         categoria: "ERP & Sistemas",
         urgencia: "alta",
       },
       {
         id: "comite-gestor-ibs",
-        titulo: "Instalação do Comitê Gestor do IBS",
+        titulo: "Instalação do Comitê Gestor do IBS (PLP 108/2024)",
         detalhe:
-          "Estrutura de governança compartilhada entre estados e municípios entra em operação para administrar a arrecadação e distribuição do IBS.",
+          "Estrutura provisória e câmaras técnicas do CGIBS em operação para padronizar o contencioso administrativo e gerir a futura distribuição federativa da arrecadação.",
         data: "2025–2026",
         prazoAno: 2026,
-        tags: ["Governança"],
+        tags: ["Governança", "CGIBS"],
         publico: "Todos",
         categoria: "Regulamentação & Leis",
         urgencia: "informativa",
@@ -87,19 +87,31 @@ export const COLUNAS_RADAR: {
         id: "cbs-substitui-pis-cofins",
         titulo: "CBS substitui PIS e COFINS integralmente",
         detalhe:
-          "Fim do regime cumulativo e não cumulativo federal; crédito financeiro amplo passa a valer para todas as compras tributadas.",
+          "Fim definitivo do regime cumulativo e não cumulativo federal; crédito financeiro amplo passa a valer para todas as compras tributadas com alíquota de 8,65%.",
         data: "Jan/2027",
         prazoAno: 2027,
-        tags: ["Federal", "Crédito"],
+        tags: ["Federal", "Crédito Pleno"],
+        publico: "Empresas",
+        categoria: "Crédito & Caixa",
+        urgencia: "alta",
+      },
+      {
+        id: "split-payment-operacional",
+        titulo: "Início do Split Payment (Inteligente e Simplificado)",
+        detalhe:
+          "Retenção automática no ato da liquidação bancária: modelo inteligente com conferência do XML da NF-e para B2B e simplificado via adquirentes/PIX no varejo.",
+        data: "Jan/2027",
+        prazoAno: 2027,
+        tags: ["Split Payment", "Bancos", "PIX"],
         publico: "Empresas",
         categoria: "Crédito & Caixa",
         urgencia: "alta",
       },
       {
         id: "ipi-zerado",
-        titulo: "IPI zerado para a maioria dos produtos",
+        titulo: "IPI zerado para a quase totalidade dos produtos",
         detalhe:
-          "Mantido apenas como Imposto Seletivo em itens específicos e preservação da competitividade da Zona Franca de Manaus.",
+          "Preservado apenas para itens concorrentes com a produção da Zona Franca de Manaus e transferido para o Imposto Seletivo.",
         data: "Jan/2027",
         prazoAno: 2027,
         tags: ["Preços", "Indústria"],
@@ -109,24 +121,24 @@ export const COLUNAS_RADAR: {
       },
       {
         id: "imposto-seletivo-cashback",
-        titulo: "Imposto Seletivo e cashback ativos",
+        titulo: "Imposto Seletivo e Cashback ativos",
         detalhe:
-          "Devolução de tributos para famílias no CadÚnico e sobretaxa em produtos nocivos à saúde e ao meio ambiente (cigarros, bebidas, etc.).",
+          "Devolução de tributos para famílias cadastradas no CadÚnico (energia, gás, itens básicos) e sobretaxa em produtos nocivos à saúde e ao meio ambiente.",
         data: "2027",
         prazoAno: 2027,
-        tags: ["Social", "Preços"],
+        tags: ["Social", "Preços", "Cashback"],
         publico: "Consumidor",
         categoria: "Social & Consumo",
         urgencia: "media",
       },
       {
         id: "reducao-icms-iss",
-        titulo: "Redução gradual de ICMS e ISS",
+        titulo: "Redução gradual de ICMS e ISS (10% ao ano)",
         detalhe:
-          "Queda de 10% ao ano nas alíquotas estaduais e municipais, com a alíquota do IBS crescendo em contrapartida até 2032.",
+          "Queda de 10% ao ano nas alíquotas estaduais e municipais a partir de 2029 (90%, 80%, 70%, 60%), com o IBS subindo na mesma proporção até a extinção em 2033.",
         data: "2029–2032",
         prazoAno: 2029,
-        tags: ["Estadual", "Municipal"],
+        tags: ["Estadual", "Municipal", "Transição"],
         publico: "Empresas",
         categoria: "Preços & Margens",
         urgencia: "informativa",
@@ -141,9 +153,9 @@ export const COLUNAS_RADAR: {
     itens: [
       {
         id: "aliquota-definitiva",
-        titulo: "Alíquota de referência definitiva",
+        titulo: "Alíquota de referência definitiva e teto constitucional",
         detalhe:
-          "O percentual final será fixado por resolução com base na arrecadação apurada; 26,5% é a estimativa padrão de referência.",
+          "O percentual padrão final será fixado por resolução com base na arrecadação observada na transição; 26,5% é o parâmetro padrão de referência oficial.",
         data: "Até 2027",
         prazoAno: 2027,
         tags: ["Alíquota", "Teto"],
@@ -153,24 +165,24 @@ export const COLUNAS_RADAR: {
       },
       {
         id: "split-payment-regras",
-        titulo: "Split payment e liquidação financeira",
+        titulo: "Homologação das APIs bancárias do Split Payment",
         detalhe:
-          "Mecanismo de retenção automática do imposto no ato do pagamento (PIX, cartão, boleto) tem integrações bancárias em regulamentação.",
-        data: "Em definição",
+          "Testes de mensageria com o Banco Central e instituições de pagamento para conciliação em milissegundos entre nota fiscal e liquidação financeira.",
+        data: "Em testes",
         prazoAno: 2026,
-        tags: ["Operacional", "Caixa"],
+        tags: ["Operacional", "Caixa", "APIs"],
         publico: "Empresas",
         categoria: "Crédito & Caixa",
         urgencia: "alta",
       },
       {
         id: "credito-presumido-agro",
-        titulo: "Créditos presumidos do agro e transportador autônomo",
+        titulo: "Percentuais setoriais de crédito presumido do agro (Art. 281)",
         detalhe:
-          "Percentuais e sistemática de apropriação do crédito pelo adquirente dependem de lei complementar e atos do Comitê Gestor.",
-        data: "Em definição",
+          "Fixação dos percentuais (4,5% a 7%) para adquirentes industriais/comerciais de insumos e produtos de produtor rural pessoa física não contribuinte.",
+        data: "2026",
         prazoAno: 2026,
-        tags: ["Agro", "Crédito"],
+        tags: ["Agro", "Crédito Presumido"],
         publico: "Agronegócio",
         categoria: "Agro",
         urgencia: "media",

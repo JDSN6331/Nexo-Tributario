@@ -37,6 +37,7 @@ type Pergunta = {
   a: string;
   exemplo?: string;
   grupo: "Fundamentos" | "Empresas" | "Consumidor" | "Usar as ferramentas";
+  destaque?: boolean;
 };
 
 const perguntas: Pergunta[] = [

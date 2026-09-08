@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ExternalLink, Newspaper } from "lucide-react";
+import { ExternalLink, Newspaper, Search } from "lucide-react";
 import { Logo } from "@/components/logo";
+import { openGlobalSearch } from "@/components/global-search";
 
 const links = [
   { to: "/", label: "Início" },
@@ -37,8 +38,21 @@ export function SiteNav() {
           ))}
         </div>
 
-        {/* Link para Notícias em Tempo Real */}
-        <div className="hidden items-center md:flex">
+        {/* Ações Desktop: Busca Global & Notícias */}
+        <div className="hidden items-center gap-2.5 md:flex">
+          <button
+            type="button"
+            onClick={openGlobalSearch}
+            className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-muted-foreground ring-1 ring-border hover:bg-glass-strong hover:text-foreground transition-all cursor-pointer shadow-glass"
+            title="Abrir busca rápida (Ctrl + K / Cmd + K)"
+          >
+            <Search className="size-3.5 text-primary" />
+            <span>Buscar</span>
+            <kbd className="inline-flex items-center rounded bg-background/80 px-1.5 py-0.5 text-[10px] font-mono text-muted-foreground/80 ring-1 ring-border">
+              Ctrl K
+            </kbd>
+          </button>
+
           <a
             href="https://www.cnnbrasil.com.br/tudo-sobre/reforma-tributaria/"
             target="_blank"
@@ -47,13 +61,22 @@ export function SiteNav() {
             title="Acompanhe as últimas notícias e atualizações sobre a Reforma Tributária"
           >
             <Newspaper className="size-3.5 text-primary" />
-            <span>Notícias em Tempo Real</span>
+            <span>Notícias</span>
             <ExternalLink className="size-3 text-muted-foreground" />
           </a>
         </div>
 
-        {/* Controles Mobile (Hamburger) */}
-        <div className="flex items-center gap-2 md:hidden">
+        {/* Controles Mobile (Busca, Notícias e Hamburger) */}
+        <div className="flex items-center gap-1.5 md:hidden">
+          <button
+            type="button"
+            onClick={openGlobalSearch}
+            className="grid size-8 place-items-center rounded-xl bg-background/60 text-foreground ring-1 ring-border"
+            title="Buscar (Ctrl + K)"
+            aria-label="Abrir busca"
+          >
+            <Search className="size-3.5 text-primary" />
+          </button>
           <a
             href="https://www.cnnbrasil.com.br/tudo-sobre/reforma-tributaria/"
             target="_blank"
@@ -84,6 +107,22 @@ export function SiteNav() {
       {mobileMenuOpen && (
         <div className="glass mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl p-4 shadow-glass ring-1 ring-border md:hidden animate-scale-up space-y-2">
           <div className="grid gap-1">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openGlobalSearch();
+              }}
+              className="flex items-center justify-between rounded-xl bg-primary/10 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/20 text-left"
+            >
+              <div className="flex items-center gap-2">
+                <Search className="size-4" />
+                <span>Busca Rápida</span>
+              </div>
+              <span className="rounded bg-background/80 px-1.5 py-0.5 text-[10px] font-mono text-muted-foreground ring-1 ring-border">
+                Ctrl K
+              </span>
+            </button>
             {links.map((l) => (
               <Link
                 key={l.to}

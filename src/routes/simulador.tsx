@@ -209,7 +209,13 @@ function SimuladorCorporativo() {
     return { aliquotaMedia, atual, novo, debitoAtual, creditoAtual, debitoNovo, creditoNovo, fases };
   }, [receita, insumos, cargaAtual, cumulatividade, mixPadrao, mixReduzida, mixZero, mixTotal]);
 
-  const foco = dados.fases.find((f) => f.ano === anoFoco)!;
+  const foco = dados.fases.find((f) => f.ano === anoFoco) ?? dados.fases[1] ?? dados.fases[0] ?? {
+    ano: "2027",
+    novo: 0.326,
+    antigo: 0.674,
+    nota: "",
+    valor: dados.atual,
+  };
   const max = Math.max(dados.atual, dados.novo, ...dados.fases.map((f) => f.valor), 1);
   const delta = dados.novo - dados.atual;
 
